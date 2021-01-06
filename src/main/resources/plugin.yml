@@ -1,0 +1,6 @@
+name: ZEconomy
+authors: [YourPalJake, X1XX]
+version: 1.0
+api-version: 1.16
+main: com.azortis.zeconomy.ZEconomy
+softdepend: [PlaceholderAPI, Vault]
