@@ -10,6 +10,6 @@ jobs:
       uses: appleboy/jenkins-action@master
       with:
         url: "http://ci.azortis.com"
-        user: "example"
+        user: "jake"
         token: ${{ secrets.TOKEN }}
         job: "ZEconomy"
