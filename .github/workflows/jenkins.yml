@@ -9,7 +9,7 @@ jobs:
     - name: Trigger Jenkins Build
       uses: appleboy/jenkins-action@master
       with:
-        url: "http://ci.azortis.com"
+        url: "https://ci.azortis.com"
         user: "jake"
         token: ${{ secrets.TOKEN }}
         job: "ZEconomy"
