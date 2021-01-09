@@ -22,6 +22,11 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>azortis</id>
+            <name>Azortis Snapshots</name>
+            <url>https://repo.azortis.com/repository/maven-snapshots/</url>
+        </repository>
     </repositories>
 
     <dependencies>

@@ -22,9 +22,24 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api;
+package com.azortis.zeconomy;
 
-public class EconomyAPI {
+import com.azortis.zeconomy.bank.BankMember;
+import com.azortis.zeconomy.bank.BankOwner;
+
+import java.util.UUID;
+
+public class EconomyPlayer implements BankOwner, BankMember {
+
+    private final UUID uuid;
+
+    public EconomyPlayer(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
 
 
 

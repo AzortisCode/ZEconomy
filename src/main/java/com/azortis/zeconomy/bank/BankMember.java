@@ -22,20 +22,7 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy;
+package com.azortis.zeconomy.bank;
 
-import org.bukkit.plugin.java.JavaPlugin;
-
-public final class ZEconomy extends JavaPlugin {
-
-    @Override
-    public void onEnable() {
-        new Metrics(this, 9917);
-    }
-
-    @Override
-    public void onDisable() {
-
-    }
-
+public interface BankMember {
 }

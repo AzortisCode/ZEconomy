@@ -22,20 +22,15 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy;
+package com.azortis.zeconomy.settings;
 
-import org.bukkit.plugin.java.JavaPlugin;
+public class Currency {
 
-public final class ZEconomy extends JavaPlugin {
+    private final String name;
+    private final String code;
 
-    @Override
-    public void onEnable() {
-        new Metrics(this, 9917);
+    public Currency(String name, String code) {
+        this.name = name;
+        this.code = code;
     }
-
-    @Override
-    public void onDisable() {
-
-    }
-
 }
