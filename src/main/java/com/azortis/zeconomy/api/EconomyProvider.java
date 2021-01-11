@@ -22,9 +22,11 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.bank;
+package com.azortis.zeconomy.api;
 
-public interface BankOwner {
+public interface EconomyProvider {
+
+    String getName();
 
 
 

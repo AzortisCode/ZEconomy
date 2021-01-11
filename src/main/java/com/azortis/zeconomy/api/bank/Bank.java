@@ -22,9 +22,25 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api;
+package com.azortis.zeconomy.api.bank;
 
-public class ZEconomyAPI {
+import com.azortis.zeconomy.api.EconomyEntity;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+
+public interface Bank {
+
+    UUID getBankId();
+
+    EconomyEntity<?> getHolder();
+
+    List<EconomyEntity<?>> getMembers();
+
+    Currency getCurrency();
+
+    BigDecimal getBalance();
 
 
 

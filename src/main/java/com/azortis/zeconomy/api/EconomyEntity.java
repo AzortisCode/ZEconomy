@@ -22,22 +22,46 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.bank;
+package com.azortis.zeconomy.api;
 
-import com.azortis.zeconomy.settings.Currency;
+import com.azortis.zeconomy.api.bank.Bank;
+import com.azortis.zeconomy.api.bank.Currency;
 
-import java.util.List;
 import java.util.UUID;
 
-public class Bank {
+/**
+ * Represents an entity that interacts in the economy,
+ * every type must be registered in {@link EconomyProvider}
+ *
+ * @param <T> The type of entity being represented.
+ */
+public interface EconomyEntity<T> {
 
-    private final UUID id;
-    private final Currency currency;
-    private BankOwner bankOwner;
-    private List<BankMember> bankMembers;
+    /**
+     * Universally unique economy identifier.
+     * For instance {@link org.bukkit.entity.Player} should return the player's unique id.
+     *
+     * @return A universally
+     */
+    UUID getEconomyId();
 
-    public Bank(UUID id, Currency currency) {
-        this.id = id;
-        this.currency = currency;
-    }
+    /**
+     * Get the entity which is being represented.
+     *
+     * @return Entity being represented.
+     */
+    T getEntity();
+
+    Bank getPrimaryBank();
+
+    Bank getPrimaryBank(Currency currency);
+
+    Bank[] getBanks();
+
+    Bank[] getBanksByCurrency(Currency currency);
+
+    Bank[] getMemberBanks();
+
+    Bank[] getMemberBanksByCurrency(Currency currency);
+
 }
