@@ -30,9 +30,14 @@
     </repositories>
 
     <distributionManagement>
+        <repository>
+            <id>azortis</id>
+            <name>Releases</name>
+            <url>https://repo.azortis.com/repository/maven-releases/</url>
+        </repository>
         <snapshotRepository>
             <id>azortis</id>
-            <name>Azortis Snapshots</name>
+            <name>Snapshots</name>
             <url>https://repo.azortis.com/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
@@ -57,5 +62,9 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>ZEconomy-v1.0</finalName>
+    </build>
 
 </project>
