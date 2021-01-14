@@ -24,9 +24,6 @@
 
 package com.azortis.zeconomy.api;
 
-import com.azortis.zeconomy.api.bank.Bank;
-import com.azortis.zeconomy.api.bank.Currency;
-
 import java.util.UUID;
 
 /**
@@ -51,6 +48,8 @@ public interface EconomyEntity<T> {
      * @return Entity being represented.
      */
     T getEntity();
+
+    boolean hasBankAccount();
 
     Bank getPrimaryBank();
 

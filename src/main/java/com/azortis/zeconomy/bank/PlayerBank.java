@@ -24,5 +24,74 @@
 
 package com.azortis.zeconomy.bank;
 
-public class PlayerBank {
+import com.azortis.zeconomy.api.Bank;
+import com.azortis.zeconomy.api.Currency;
+import com.azortis.zeconomy.api.EconomyEntity;
+import com.azortis.zeconomy.api.transaction.Transaction;
+import org.bukkit.OfflinePlayer;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+
+public class PlayerBank implements Bank {
+
+    private final EconomyEntity<OfflinePlayer> playerEntity;
+    private final Currency currency;
+    private BigDecimal balance;
+
+    public PlayerBank(EconomyEntity<OfflinePlayer> playerEntity, Currency currency) {
+        this.playerEntity = playerEntity;
+        this.currency = currency;
+    }
+
+    @Override
+    public UUID getBankId() {
+        return playerEntity.getEntity().getUniqueId();
+    }
+
+    @Override
+    public EconomyEntity<OfflinePlayer> getHolder() {
+        return playerEntity;
+    }
+
+    @Override
+    public List<EconomyEntity<?>> getMembers() {
+        return null;
+    }
+
+    @Override
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    @Override
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    @Override
+    public Transaction sendTransaction(Bank recipient, EconomyEntity<?> sender, BigDecimal amount, Transaction.Reason reason) {
+        return null;
+    }
+
+    @Override
+    public void receiveTransaction(Transaction transaction) {
+
+    }
+
+    @Override
+    public boolean hasEnough(BigDecimal amount) {
+        return false;
+    }
+
+    @Override
+    public boolean hasMore(BigDecimal amount) {
+        return false;
+    }
+
+    @Override
+    public boolean hasLess(BigDecimal amount) {
+        return false;
+    }
 }

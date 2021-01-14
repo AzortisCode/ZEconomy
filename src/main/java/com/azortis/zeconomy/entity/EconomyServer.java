@@ -25,8 +25,8 @@
 package com.azortis.zeconomy.entity;
 
 import com.azortis.zeconomy.api.EconomyEntity;
-import com.azortis.zeconomy.api.bank.Bank;
-import com.azortis.zeconomy.api.bank.Currency;
+import com.azortis.zeconomy.api.Bank;
+import com.azortis.zeconomy.api.Currency;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 
@@ -42,6 +42,11 @@ public class EconomyServer implements EconomyEntity<Server> {
     @Override
     public Server getEntity() {
         return Bukkit.getServer();
+    }
+
+    @Override
+    public boolean hasBankAccount() {
+        return false;
     }
 
     @Override

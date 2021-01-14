@@ -24,5 +24,66 @@
 
 package com.azortis.zeconomy.bank;
 
-public class ServerBank {
+import com.azortis.zeconomy.api.Bank;
+import com.azortis.zeconomy.api.Currency;
+import com.azortis.zeconomy.api.EconomyEntity;
+import com.azortis.zeconomy.api.transaction.Transaction;
+import org.bukkit.Server;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+
+public class ServerBank implements Bank {
+
+
+    @Override
+    public UUID getBankId() {
+        return null;
+    }
+
+    @Override
+    public EconomyEntity<Server> getHolder() {
+        return null;
+    }
+
+    @Override
+    public List<EconomyEntity<?>> getMembers() {
+        return null;
+    }
+
+    @Override
+    public Currency getCurrency() {
+        return null;
+    }
+
+    @Override
+    public BigDecimal getBalance() {
+        return BigDecimal.ONE;
+    }
+
+    @Override
+    public Transaction sendTransaction(Bank recipient, EconomyEntity<?> sender, BigDecimal amount, Transaction.Reason reason) {
+        return null;
+    }
+
+    @Override
+    public void receiveTransaction(Transaction transaction) {
+
+    }
+
+    @Override
+    public boolean hasEnough(BigDecimal amount) {
+        return true;
+    }
+
+    @Override
+    public boolean hasMore(BigDecimal amount) {
+        return true;
+    }
+
+    @Override
+    public boolean hasLess(BigDecimal amount) {
+        return false;
+    }
 }

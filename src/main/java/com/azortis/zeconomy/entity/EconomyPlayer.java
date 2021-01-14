@@ -25,24 +25,35 @@
 package com.azortis.zeconomy.entity;
 
 import com.azortis.zeconomy.api.EconomyEntity;
-import com.azortis.zeconomy.api.bank.Bank;
-import com.azortis.zeconomy.api.bank.Currency;
-import org.bukkit.entity.Player;
+import com.azortis.zeconomy.api.Bank;
+import com.azortis.zeconomy.api.Currency;
+import org.bukkit.OfflinePlayer;
 
 import java.util.UUID;
 
-public class EconomyPlayer implements EconomyEntity<Player> {
+public class EconomyPlayer implements EconomyEntity<OfflinePlayer> {
 
+    private final UUID uuid;
+    private final OfflinePlayer player;
 
-
-    @Override
-    public UUID getEconomyId() {
-        return null;
+    public EconomyPlayer(UUID uuid, OfflinePlayer player) {
+        this.uuid = uuid;
+        this.player = player;
     }
 
     @Override
-    public Player getEntity() {
-        return null;
+    public UUID getEconomyId() {
+        return uuid;
+    }
+
+    @Override
+    public OfflinePlayer getEntity() {
+        return player;
+    }
+
+    @Override
+    public boolean hasBankAccount() {
+        return false;
     }
 
     @Override

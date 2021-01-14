@@ -24,19 +24,71 @@
 
 package com.azortis.zeconomy.api.transaction;
 
-import com.azortis.zeconomy.api.bank.Bank;
+import com.azortis.zeconomy.api.Bank;
+import com.azortis.zeconomy.api.EconomyEntity;
 
 import java.math.BigDecimal;
 
 public class Transaction {
 
     private final Bank sender;
+    private final EconomyEntity<?> senderEntity;
     private final Bank receiver;
+    private final BigDecimal amount;
+    private final Reason reason;
 
-    public Transaction(Bank sender, Bank receiver, BigDecimal amount) {
+    private Status status;
+
+    public Transaction(Bank sender, EconomyEntity<?> senderEntity, Bank receiver, BigDecimal amount, Reason reason) {
         this.sender = sender;
+        this.senderEntity = senderEntity;
         this.receiver = receiver;
+        this.amount = amount;
+        this.reason = reason;
+        this.status = Status.PENDING;
     }
 
+    public Bank getSender() {
+        return sender;
+    }
+
+    public EconomyEntity<?> getSenderEntity() {
+        return senderEntity;
+    }
+
+    public Bank getReceiver() {
+        return receiver;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public Reason getReason() {
+        return reason;
+    }
+
+    public void setStatus(Status status){
+        if(this.status == Status.PENDING)this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public enum Status {
+        FINISHED,
+        PENDING,
+        DENIED,
+        ERROR
+    }
+
+    public enum Reason {
+        PURCHASE,
+        WITHDRAWAL,
+        DEPOSIT,
+        ADMIN,
+        CUSTOM
+    }
 
 }

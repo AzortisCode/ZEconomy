@@ -24,14 +24,15 @@
 
 package com.azortis.zeconomy.api;
 
-import com.azortis.zeconomy.api.bank.Currency;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
+import org.bukkit.Server;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface EconomyProvider {
+
+    boolean isEnabled();
 
     String getName();
 
@@ -39,16 +40,18 @@ public interface EconomyProvider {
 
     List<Currency> getCurrencies();
 
-    boolean registerCurrency(Currency currency);
+    Currency getCurrency(String name);
+
+    boolean registerCurrency(final Currency currency);
 
     List<Class<EconomyEntity<?>>> getEntityTypes();
 
-    boolean registerEntityType(Class<EconomyEntity<?>> type);
+    boolean registerEntityType(final Class<EconomyEntity<?>> type);
 
-    EconomyEntity<?> getEntity(UUID economyId);
+    EconomyEntity<?> getEntity(final UUID economyId);
 
-    EconomyEntity<Player> getPlayerEntity(UUID uuid);
+    EconomyEntity<OfflinePlayer> getPlayerEntity(final UUID playerId);
 
-    EconomyEntity<OfflinePlayer> getOfflinePlayerEntity(UUID uuid);
+    EconomyEntity<Server> getServerEntity();
 
 }

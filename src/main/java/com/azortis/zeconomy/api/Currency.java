@@ -22,10 +22,28 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api.bank;
+package com.azortis.zeconomy.api;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
 
 public interface Currency {
 
+    String getIdentifier();
 
+    boolean isDefault();
+
+    String getSingularName();
+
+    String getPluralName();
+
+    String getSymbol();
+
+    MathContext getMathContext();
+
+    BigInteger getMaxBalance();
+
+    String formatBalance(BigDecimal amount);
 
 }

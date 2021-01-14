@@ -30,11 +30,11 @@ import org.bukkit.OfflinePlayer;
 
 import java.util.List;
 
-public class VaultEconomy implements Economy {
+public class VaultImplementation implements Economy {
 
     private final ZEconomy plugin;
 
-    public VaultEconomy(ZEconomy plugin){
+    public VaultImplementation(ZEconomy plugin){
         this.plugin = plugin;
     }
 

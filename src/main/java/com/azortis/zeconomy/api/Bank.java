@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api.bank;
+package com.azortis.zeconomy.api;
 
-import com.azortis.zeconomy.api.EconomyEntity;
+import com.azortis.zeconomy.api.transaction.Transaction;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -42,6 +42,14 @@ public interface Bank {
 
     BigDecimal getBalance();
 
+    Transaction sendTransaction(Bank recipient, EconomyEntity<?> sender, BigDecimal amount, Transaction.Reason reason);
 
+    void receiveTransaction(final Transaction transaction);
+
+    boolean hasEnough(final BigDecimal amount);
+
+    boolean hasMore(final BigDecimal amount);
+
+    boolean hasLess(final BigDecimal amount);
 
 }
