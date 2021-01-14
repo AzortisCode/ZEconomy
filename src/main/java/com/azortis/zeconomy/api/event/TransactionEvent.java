@@ -22,34 +22,45 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.entity;
+package com.azortis.zeconomy.api.event;
 
-import com.azortis.zeconomy.api.EconomyEntity;
-import com.azortis.zeconomy.api.bank.Bank;
-import com.azortis.zeconomy.api.bank.Currency;
-import org.bukkit.OfflinePlayer;
+import com.azortis.zeconomy.api.transaction.Transaction;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.UUID;
+public class TransactionEvent extends Event implements Cancellable {
 
-public class EconomyOfflinePlayer implements EconomyEntity<OfflinePlayer> {
+    private static final HandlerList handlers = new HandlerList();
+    private boolean cancelled = false;
+    private final Transaction transaction;
 
-    @Override
-    public UUID getEconomyId() {
-        return null;
+    public TransactionEvent(Transaction transaction){
+        this.transaction = transaction;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
     }
 
     @Override
-    public OfflinePlayer getEntity() {
-        return null;
+    public boolean isCancelled() {
+        return cancelled;
     }
 
     @Override
-    public Bank getPrimaryBank() {
-        return null;
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
     }
 
     @Override
-    public Bank getPrimaryBank(Currency currency) {
-        return null;
+    public @NotNull HandlerList getHandlers() {
+        return handlers;
     }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
+
 }
