@@ -22,33 +22,21 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api;
+package com.azortis.zeconomy.api.transaction;
 
-import com.azortis.zeconomy.api.bank.Currency;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
+import com.azortis.zeconomy.api.bank.Bank;
 
-import java.util.List;
-import java.util.UUID;
+import java.math.BigDecimal;
 
-public interface EconomyProvider {
+public class Transaction {
 
-    String getName();
+    private final Bank sender;
+    private final Bank receiver;
 
-    Currency getPrimaryCurrency();
+    public Transaction(Bank sender, Bank receiver, BigDecimal amount) {
+        this.sender = sender;
+        this.receiver = receiver;
+    }
 
-    List<Currency> getCurrencies();
-
-    boolean registerCurrency(Currency currency);
-
-    List<Class<EconomyEntity<?>>> getEntityTypes();
-
-    boolean registerEntityType(Class<EconomyEntity<?>> type);
-
-    EconomyEntity<?> getEntity(UUID economyId);
-
-    EconomyEntity<Player> getPlayerEntity(UUID uuid);
-
-    EconomyEntity<OfflinePlayer> getOfflinePlayerEntity(UUID uuid);
 
 }

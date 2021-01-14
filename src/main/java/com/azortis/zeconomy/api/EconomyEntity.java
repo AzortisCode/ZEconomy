@@ -41,7 +41,7 @@ public interface EconomyEntity<T> {
      * Universally unique economy identifier.
      * For instance {@link org.bukkit.entity.Player} should return the player's unique id.
      *
-     * @return A universally
+     * @return A universally economy identifier.
      */
     UUID getEconomyId();
 
@@ -55,13 +55,5 @@ public interface EconomyEntity<T> {
     Bank getPrimaryBank();
 
     Bank getPrimaryBank(Currency currency);
-
-    Bank[] getBanks();
-
-    Bank[] getBanksByCurrency(Currency currency);
-
-    Bank[] getMemberBanks();
-
-    Bank[] getMemberBanksByCurrency(Currency currency);
 
 }

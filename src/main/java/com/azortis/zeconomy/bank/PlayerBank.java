@@ -22,33 +22,7 @@
  * SOFTWARE.
  */
 
-package com.azortis.zeconomy.api;
+package com.azortis.zeconomy.bank;
 
-import com.azortis.zeconomy.api.bank.Currency;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-
-import java.util.List;
-import java.util.UUID;
-
-public interface EconomyProvider {
-
-    String getName();
-
-    Currency getPrimaryCurrency();
-
-    List<Currency> getCurrencies();
-
-    boolean registerCurrency(Currency currency);
-
-    List<Class<EconomyEntity<?>>> getEntityTypes();
-
-    boolean registerEntityType(Class<EconomyEntity<?>> type);
-
-    EconomyEntity<?> getEntity(UUID economyId);
-
-    EconomyEntity<Player> getPlayerEntity(UUID uuid);
-
-    EconomyEntity<OfflinePlayer> getOfflinePlayerEntity(UUID uuid);
-
+public class PlayerBank {
 }
